@@ -10,12 +10,15 @@ Installation ⬇️
 2. Clone your forked repository to your local system 👥
 
 git clone https://github.com/<your-username>/react-product-card.git
+  
 Or Download and extract the zip file.
 
 Running
+  
 1. Install NPM packages ⬇️
 
 npm install
+  
 2. Run! 🏃‍♂️
 
 npm start
