@@ -1,0 +1,114 @@
+@include ddq() {
+  // -> .Card-header , .Card-body , .Card-footer
+  .Card {
+    display: grid;
+    grid-template-areas:
+      "h b"
+      "f f";
+    grid-template-columns: max-content 1fr;
+    padding-bottom: 5px;
+
+    &-header {
+      grid-area: h;
+    }
+
+    &-body {
+      grid-area: b;
+      .footer {
+        max-width: 20rem;
+      }
+    }
+
+    &-footer {
+      grid-area: f;
+      justify-content: start;
+      margin-left: 0;
+      margin-top: 25px;
+      position: relative;
+
+      // line above tablets
+      &::after {
+        content: "";
+        background: rgba($black, 0.25);
+        height: 1px;
+        position: absolute;
+        top: -15px;
+        width: 100%;
+      }
+    }
+  }
+}
+
+@include tdq() {
+  // -> .Card-header , .Card-body
+  .Card {
+    margin-bottom: 40px;
+    overflow: visible;
+    padding: {
+      left: 25px;
+      right: 15px;
+    }
+
+    &-header {
+      position: absolute;
+      top: -50px;
+      img {
+        width: 50px;
+        border-radius: 100%;
+      }
+    }
+
+    &-body {
+      margin-top: 20px;
+    }
+  }
+}
+
+@include mdq() {
+  // -> h1 , .heading , .Card-body
+  .Card {
+    h1 {
+      font-size: 1rem;
+      line-height: 1;
+      margin-bottom: 10px;
+    }
+
+    .heading {
+      .labels {
+        display: flex;
+        font-size: 0.7rem;
+        margin: 0;
+        .label {
+          display: block;
+          padding: 8px;
+          padding-bottom: 5px;
+        }
+      }
+    }
+
+    &-body {
+      .footer {
+        font-size: 13.5px;
+        justify-content: start;
+        margin: {
+          top: 15px;
+          bottom: 10px;
+        }
+        li {
+          line-height: 1;
+          margin-right: 11px;
+
+          &:nth-of-type(3) {
+            margin-right: 0;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 360px) {
+  .Card-body .footer {
+    justify-content: space-between;
+  }
+}

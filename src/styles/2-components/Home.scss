@@ -1,0 +1,38 @@
+.header {
+  background: url("/images/bg-header-desktop.svg") $primary-cyan;
+  background-size: cover;
+  height: 150px;
+  width: 100%;
+}
+
+.body {
+  transition: all 1s;
+  background: $bg;
+  font-family: $font-1;
+  min-height: 100vh;
+  padding: 6rem 10rem;
+}
+
+.cardList {
+  margin-top: -80px;
+}
+
+@include tdq() {
+  .header {
+    background-image: url("/images/bg-header-mobile.svg");
+  }
+
+  .body {
+    padding: 4rem 2rem;
+  }
+
+  .cardList {
+    margin-top: -65px;
+  }
+}
+
+@media only screen and (max-width: 360px) {
+  .body {
+    padding: 4rem 0.5rem;
+  }
+}

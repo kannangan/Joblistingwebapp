@@ -1,0 +1,131 @@
+// -> .Card-header , .Card-body, .Card-footer
+.Card {
+  @include fc(1, 0);
+  background: #fff;
+  border-radius: 5px;
+  box-shadow: 0.5px 10px 10px rgba($color: $primary-cyan, $alpha: 0.2);
+  display: flex;
+  margin-bottom: 20px;
+  overflow: hidden;
+  position: relative;
+  padding: 1.71rem 2.8rem;
+  transition: transform 0.3s;
+  transform: scale(0.98);
+
+  // for Firfox only
+  @-moz-document url-prefix() {
+    transform: scale(1);
+  }
+
+  &:hover {
+    transform: scale(1);
+  }
+
+  // show a line
+  &.featured {
+    &::before {
+      background: $primary-cyan;
+      content: "";
+      height: 100%;
+      left: 0;
+      position: absolute;
+      width: 5px;
+    }
+  }
+
+  &-header {
+    margin-right: 25px;
+  }
+
+  // -> .heading , .footer , h1
+  &-body {
+    width: 100%;
+    max-width: 20rem;
+    .heading {
+      display: flex;
+      align-items: center;
+      font-size: $font-size * 0.9;
+      font-weight: 700;
+      margin-bottom: 10px;
+      .company {
+        color: $primary-cyan;
+      }
+
+      .labels {
+        text-transform: uppercase;
+        margin-left: 15px;
+        font-size: $font-size * 0.8;
+        .label {
+          // font-size: 0.8rem;
+          margin-left: 10px;
+          padding: 10px;
+          padding-bottom: 7px;
+          border-radius: 25px;
+          // @include no-gutter;
+          color: white;
+          background-color: $black;
+          &.new {
+            background-color: $primary-cyan;
+          }
+        }
+      }
+    }
+
+    .footer {
+      color: $gray;
+      font-size: $font-size * 0.95;
+      display: flex;
+      justify-content: space-between;
+      li {
+        &:nth-of-type(1) {
+          list-style: none;
+        }
+        width: max-content;
+        list-style-type: disc;
+        padding-right: 3.5%;
+        position: relative;
+      }
+    }
+
+    h1 {
+      @include no-gutter(2.5);
+      color: $black;
+      cursor: pointer;
+      font-size: 1.15rem;
+      width: max-content;
+
+      &:hover {
+        color: $primary-cyan;
+      }
+    }
+  }
+
+  // -> li
+  &-footer {
+    display: flex;
+    font-size: $font-size * 0.9;
+    flex: 1;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    margin-left: 15px;
+    li {
+      background: $secondary-cyan;
+      border-radius: 5px;
+      color: $primary-cyan;
+      cursor: pointer;
+      font-weight: 700;
+      margin: {
+        right: 15px;
+        bottom: 15px;
+      }
+      padding: 7.5px;
+      padding-top: 10px;
+      line-height: 1;
+
+      &:hover {
+        background: $primary-cyan;
+        color: white;
+      }
+    }
+  }
+}

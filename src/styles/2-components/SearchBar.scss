@@ -1,0 +1,83 @@
+.SearchBar {
+  background: #ffffff;
+  border-radius: 7px;
+  box-shadow: 0.5px 10px 10px rgba($primary-cyan, 0.2);
+  display: grid;
+  grid-template-columns: 1fr max-content;
+  min-height: 60px;
+  opacity: 0;
+  overflow: auto;
+  padding: 1rem 25px 0 25px;
+  position: relative;
+  top: -90px;
+  transform: translateX(-800px);
+  transition: 0.7s transform, 0.5s opacity;
+  z-index: 100;
+
+  &.active {
+    opacity: 1;
+    transform: translateY(-50%);
+  }
+  .terms {
+    display: flex;
+    flex-wrap: wrap;
+    p {
+      @include fc(1, 0);
+      background: $bg;
+      border-radius: 5px;
+      box-shadow: 0 0 2.5px rgba(#000000, 0.15);
+      color: $primary-cyan;
+      font-weight: 700;
+      margin: 0 20px 1rem 0;
+      padding-left: 8px;
+      span {
+        background: $primary-cyan;
+        border-top-right-radius: 5px;
+        border-bottom-right-radius: 5px;
+        cursor: pointer;
+        font-size: 1.4rem;
+        line-height: 0;
+        margin-left: 8px;
+        transition: all 0.3s;
+        svg {
+          width: 40px;
+          height: 30px;
+        }
+
+        &:hover {
+          background: $black;
+        }
+      }
+    }
+  }
+
+  .clear {
+    color: $gray;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 700;
+    outline: none;
+    text-transform: capitalize;
+    transform: translateY(-15%);
+    margin-left: 15px;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+// media-query for tablet-down
+@include tdq {
+  .SearchBar {
+    font-size: 0.9rem;
+    top: -60px;
+    &.active + div > div {
+      margin-top: -30px;
+    }
+    p span svg {
+      width: 30px !important;
+      height: 30px !important;
+    }
+  }
+}
